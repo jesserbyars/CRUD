@@ -1,0 +1,181 @@
+$black: #050505;
+$white: #ffffff;
+$cream: #ddccaa;
+$skyblue: #95b9c7;
+$darkblue: #10303b;
+$gray: #888888;
+$darkgray: #555555;
+$verydarkgray: #171717;
+$red: #8e1812;
+$blue: #0000dd;
+$green: #00dd00;
+
+@import 'reset.scss';
+
+@mixin border-radius($radius) {
+	 -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+       -o-border-radius: $radius;
+          border-radius: $radius;
+}
+
+body {
+	background-color: $verydarkgray;
+	width: 100%;
+	margin: 0 auto;
+	font-family: sans-serif;
+}
+
+#pagewrapper {
+	width: 90%;
+	min-width: 400px;
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+
+#banner {
+
+	height: 70px;
+	border-bottom: 2px solid $black;
+
+	#banner-left {
+		height: 100%;
+		float: left;
+		width: 70%;
+		background-color: $gray;
+
+		h1 {
+			display: none;
+			font-size: 160%;
+			padding: 5px 0 0 5px;
+		}
+	}
+
+	#banner-right {
+		height: 100%;
+		background-color: $gray;
+		width: 30%;
+		float: left;
+		p {
+			font-weight: bold;
+			text-align: right;
+			padding: 8px 5px 0 0;	
+			display: none;
+
+		}
+		
+	}
+
+}
+
+#nav {
+	clear: both;
+	height: auto;
+	background-color: $white;
+
+	ul {
+		width: 100%;
+		
+		li {
+			display: block;
+			text-align: center;
+
+			a {
+				width: 100%;
+				display: block;
+				padding: 5px 0 5px 0;
+				font-size: 120%;
+				line-height: 130%;
+			}
+
+			a:link, a:visited {
+				text-decoration: none;
+				color: $black;
+			}
+
+
+			a:hover {
+				text-decoration: none;
+				background-color: $black;
+				color: $white;
+			}
+
+			a:active {
+				text-decoration: none;
+			}
+		}
+
+	}
+}
+
+#content {
+	border-top: 2px solid $black;
+	background-color: $gray;
+	padding: 20px 10px 20px 10px;
+
+}
+
+#footer {
+
+	border-top: 2px solid $black;
+	background-color: $white;
+	p {
+		font-weight: bold;
+		margin: 0 auto;
+		padding: 10px 0 10px 0;
+		text-align: center;
+	}
+}
+
+.tabledisplay {
+ 
+ 	width: 100%;
+
+	th, td {
+		vertical-align: middle;
+		border: 1px solid $verydarkgray;
+		width: 10%;
+		padding: 2px 1px;
+		text-align: center;
+	}
+
+	a:link, a:visited {
+		color: $cream;
+	}
+
+	a:hover, a:active {
+		color: $black;
+	}
+
+}
+
+#insert_user {
+	p {
+		padding-bottom: 10px;
+	}
+
+	input {
+		margin-left: 15px;
+
+		.button {
+			margin: 0 0 0 0;
+		}
+	}
+}
+
+.error {
+	font-weight: bold;
+	color: $red;
+}
+
+.success {
+	font-weight: bold;
+	color: $green;
+}
+
+.space {
+	margin-bottom: 3px;
+}
+

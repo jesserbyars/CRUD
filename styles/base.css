@@ -1,0 +1,152 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body {
+  background-color: #171717;
+  width: 100%;
+  margin: 0 auto;
+  font-family: sans-serif; }
+
+#pagewrapper {
+  width: 90%;
+  min-width: 400px;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 20px; }
+
+#banner {
+  height: 70px;
+  border-bottom: 2px solid #050505; }
+  #banner #banner-left {
+    height: 100%;
+    float: left;
+    width: 70%;
+    background-color: #888888; }
+    #banner #banner-left h1 {
+      display: none;
+      font-size: 160%;
+      padding: 5px 0 0 5px; }
+  #banner #banner-right {
+    height: 100%;
+    background-color: #888888;
+    width: 30%;
+    float: left; }
+    #banner #banner-right p {
+      font-weight: bold;
+      text-align: right;
+      padding: 8px 5px 0 0;
+      display: none; }
+
+#nav {
+  clear: both;
+  height: auto;
+  background-color: white; }
+  #nav ul {
+    width: 100%; }
+    #nav ul li {
+      display: block;
+      text-align: center; }
+      #nav ul li a {
+        width: 100%;
+        display: block;
+        padding: 5px 0 5px 0;
+        font-size: 120%;
+        line-height: 130%; }
+      #nav ul li a:link, #nav ul li a:visited {
+        text-decoration: none;
+        color: #050505; }
+      #nav ul li a:hover {
+        text-decoration: none;
+        background-color: #050505;
+        color: white; }
+      #nav ul li a:active {
+        text-decoration: none; }
+
+#content {
+  border-top: 2px solid #050505;
+  background-color: #888888;
+  padding: 20px 10px 20px 10px; }
+
+#footer {
+  border-top: 2px solid #050505;
+  background-color: white; }
+  #footer p {
+    font-weight: bold;
+    margin: 0 auto;
+    padding: 10px 0 10px 0;
+    text-align: center; }
+
+.tabledisplay {
+  width: 100%; }
+  .tabledisplay th, .tabledisplay td {
+    vertical-align: middle;
+    border: 1px solid #171717;
+    width: 10%;
+    padding: 2px 1px;
+    text-align: center; }
+  .tabledisplay a:link, .tabledisplay a:visited {
+    color: #ddccaa; }
+  .tabledisplay a:hover, .tabledisplay a:active {
+    color: #050505; }
+
+#insert_user p {
+  padding-bottom: 10px; }
+#insert_user input {
+  margin-left: 15px; }
+  #insert_user input .button {
+    margin: 0 0 0 0; }
+
+.error {
+  font-weight: bold;
+  color: #8e1812; }
+
+.success {
+  font-weight: bold;
+  color: #00dd00; }
+
+.space {
+  margin-bottom: 3px; }
