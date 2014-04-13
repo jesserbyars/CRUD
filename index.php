@@ -19,10 +19,24 @@
 			<p>
 
 				<?php
-
+					//DELETE SECTION
+					//check to see if the user is trying to delete a record
+					if(isset($_GET['delete'])) {
+						confirm_delete();
+					} elseif(isset($_GET['deleteconfirm'])) {
+						//delete a user, if confirmation was made
+						delete_user($dbc);	
+					}
 					
-					//display the table no matter what (so far)
-					delete_user($dbc);
+					//UPDATE SECTION
+					if(isset($_GET['update'])) {
+						update_user($dbc);
+					} elseif(isset($_POST['update_confirm'])) {
+						perform_update($dbc);
+					}
+
+					//DISPLAY SECTION
+					//display the table
 					display_table($dbc, "students", "first_name");
 
 				?>

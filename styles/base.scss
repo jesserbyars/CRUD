@@ -3,10 +3,11 @@ $white: #ffffff;
 $cream: #ddccaa;
 $skyblue: #95b9c7;
 $darkblue: #10303b;
+$lightgray: #bbbbbb;
 $gray: #888888;
 $darkgray: #555555;
 $verydarkgray: #171717;
-$red: #8e1812;
+$red: #ce1812;
 $blue: #0000dd;
 $green: #00dd00;
 
@@ -18,6 +19,12 @@ $green: #00dd00;
       -ms-border-radius: $radius;
        -o-border-radius: $radius;
           border-radius: $radius;
+}
+
+@mixin box-shadow($h_offset, $v_offset, $blur_radius, $spread_radius, $color) {
+	-moz-box-shadow:    $h_offset $v_offset $blur_radius $spread_radius $color;
+  	-webkit-box-shadow: $h_offset $v_offset $blur_radius $spread_radius $color;
+  	box-shadow:         $h_offset $v_offset $blur_radius $spread_radius $color;
 }
 
 body {
@@ -135,47 +142,105 @@ body {
 
 	th, td {
 		vertical-align: middle;
-		border: 1px solid $verydarkgray;
+		border: 2px solid $verydarkgray;
 		width: 10%;
 		padding: 2px 1px;
 		text-align: center;
 	}
 
+	tr:nth-child(even) {
+		background-color: $lightgray;
+	}
+
+	th {
+		padding: 13px 0px;
+		font-weight: bold;
+		font-size: 1.1em;
+	}
+
 	a:link, a:visited {
-		color: $cream;
+		color: $black;
 	}
 
 	a:hover, a:active {
-		color: $black;
+		color: $white;
 	}
 
 }
 
-#insert_user {
+#insert_user, #update_form {
 	p {
+		font-size: 1.1em;
+		font-weight: bold;
 		padding-bottom: 10px;
 	}
 
 	input {
-		margin-left: 15px;
+		@include box-shadow(0px, 8px, 6px, -6px, $black);
+		margin-top: 10px;
+		font-size: 1.1em;
+		padding: 2px;
+		display: block;
 
-		.button {
-			margin: 0 0 0 0;
-		}
+	}
+
+	.button {
+		padding: 2px 5px;
 	}
 }
 
-.error {
+.message {
+	font-size: 1.1em;
 	font-weight: bold;
+	padding: 5px 0 5px 0;
+	border-bottom: 1px solid $black;
+	margin-bottom: 14px;
+	color: $black;
+}
+
+.error {
+	@extend .message;
 	color: $red;
 }
 
 .success {
-	font-weight: bold;
+	@extend .message;
 	color: $green;
 }
 
-.space {
-	margin-bottom: 3px;
+.linkbutton {
+	display: inline-block;
+	float: left;
+	font-size: 1.1em;
+	padding: 8px 16px;
+	background-color: $verydarkgray;
+	color: $white;
+	border: 2px solid $black;
+	margin: 10px 10px 10px 0;
+	@include box-shadow(0px, 8px, 6px, -6px, $black);
+	text-decoration: none;
+}
+
+.linkbutton:hover {
+	color: $black;
+}
+
+.linkbutton:after {
+	clear: both;
+}
+
+.confirm {
+	@extend .linkbutton;
+	background-color: $green;
+}
+
+.cancel {
+	@extend .linkbutton;
+	background-color: $red;
+}
+
+.actions {
+	font-size: .9em;
+	padding: 4px 0px;
 }
 

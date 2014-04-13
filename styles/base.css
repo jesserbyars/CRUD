@@ -124,29 +124,76 @@ body {
   width: 100%; }
   .tabledisplay th, .tabledisplay td {
     vertical-align: middle;
-    border: 1px solid #171717;
+    border: 2px solid #171717;
     width: 10%;
     padding: 2px 1px;
     text-align: center; }
+  .tabledisplay tr:nth-child(even) {
+    background-color: #bbbbbb; }
+  .tabledisplay th {
+    padding: 13px 0px;
+    font-weight: bold;
+    font-size: 1.1em; }
   .tabledisplay a:link, .tabledisplay a:visited {
-    color: #ddccaa; }
-  .tabledisplay a:hover, .tabledisplay a:active {
     color: #050505; }
+  .tabledisplay a:hover, .tabledisplay a:active {
+    color: white; }
 
-#insert_user p {
+#insert_user p, #update_form p {
+  font-size: 1.1em;
+  font-weight: bold;
   padding-bottom: 10px; }
-#insert_user input {
-  margin-left: 15px; }
-  #insert_user input .button {
-    margin: 0 0 0 0; }
+#insert_user input, #update_form input {
+  -moz-box-shadow: 0px 8px 6px -6px #050505;
+  -webkit-box-shadow: 0px 8px 6px -6px #050505;
+  box-shadow: 0px 8px 6px -6px #050505;
+  margin-top: 10px;
+  font-size: 1.1em;
+  padding: 2px;
+  display: block; }
+#insert_user .button, #update_form .button {
+  padding: 2px 5px; }
+
+.message, .error, .success {
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 5px 0 5px 0;
+  border-bottom: 1px solid #050505;
+  margin-bottom: 14px;
+  color: #050505; }
 
 .error {
-  font-weight: bold;
-  color: #8e1812; }
+  color: #ce1812; }
 
 .success {
-  font-weight: bold;
   color: #00dd00; }
 
-.space {
-  margin-bottom: 3px; }
+.linkbutton, .confirm, .cancel {
+  display: inline-block;
+  float: left;
+  font-size: 1.1em;
+  padding: 8px 16px;
+  background-color: #171717;
+  color: white;
+  border: 2px solid #050505;
+  margin: 10px 10px 10px 0;
+  -moz-box-shadow: 0px 8px 6px -6px #050505;
+  -webkit-box-shadow: 0px 8px 6px -6px #050505;
+  box-shadow: 0px 8px 6px -6px #050505;
+  text-decoration: none; }
+
+.linkbutton:hover, .confirm:hover, .cancel:hover {
+  color: #050505; }
+
+.linkbutton:after, .confirm:after, .cancel:after {
+  clear: both; }
+
+.confirm {
+  background-color: #00dd00; }
+
+.cancel {
+  background-color: #ce1812; }
+
+.actions {
+  font-size: .9em;
+  padding: 4px 0px; }

@@ -26,8 +26,8 @@
 		while($row = mysqli_fetch_assoc($r)) {
 			echo "<tr>";
 			echo "<td>";
-			echo "<p class=\"space\"><a href=\"?update={$row['student_id']}\">Update</a></p>";
-			echo "<a href=\"?delete={$row['student_id']}\">Delete</a>";
+			echo "<p class=\"actions\"><a href=\"?update={$row['student_id']}\">Update</a></p>";
+			echo "<p class=\"actions\"><a href=\"?delete={$row['student_id']}\">Delete</a></p>";
 			echo "</td>";
 			foreach($row as $v) {
 				echo "<td>$v</td>";
@@ -63,10 +63,18 @@
 
 	}
 
-	function delete_user($dbc) {
+	function confirm_delete() {
 		if(isset($_GET['delete'])) {
+			echo "<p class=\"message\">Confirm deletion of user# " . $_GET['delete'];
+			echo "<p><a class=\"confirm\" href=\"?delete_confirm={$_GET['delete']}\">Confirm</a></p>";
+			echo "<p><a class=\"cancel\" href=\"index.php\">Cancel</a></p>";
+		}
+	}
+
+	function delete_user($dbc) {
+		if(isset($_GET['delete_confirm'])) {
 			//add confirmation!!!
-			$q = "DELETE FROM students WHERE student_id = {$_GET['delete']} LIMIT 1";
+			$q = "DELETE FROM students WHERE student_id = {$_GET['deleteconfirm']} LIMIT 1";
 			mysqli_query($dbc, $q);
 			if(mysqli_affected_rows($dbc)==1) {
 				echo '<p class="success">Delete was successful</p>';
@@ -74,8 +82,58 @@
 				echo '<p class="error">Delete failed!</p>';
 			}
 		}
+	}
+
+	function update_user($dbc) {
+		if(isset($_GET['update'])) {
+
+			echo '<p class="success">Updating user #'. $_GET['update'] . '</p>';
+			$q = "SELECT * FROM students WHERE student_id = {$_GET['update']} LIMIT 1";
+			$r = mysqli_query($dbc, $q);
+			$row = mysqli_fetch_assoc($r);
+
+			//break out of php
+			?>
+			
+			<form id="update_form" action="index.php" method="post">
+			
+				<p>First Name:<input type="text" name="first_name" size="30" maxlength="20" value="<?php echo $row['first_name'] ?>"></p>
+				<p>Last Name:<input type="text" name="last_name" size="30" maxlength="40" value="<?php echo $row['last_name'] ?>"></p>
+				<p>Email Address:<input type="email" name="email" size="30" maxlength="60" value="<?php echo $row['email'] ?>"></p>
+				<p>Phone #:<input type="text" name="phone" size="15" maxlength="20" value="<?php echo $row['phone'] ?>"></p>
+				<input type="hidden" name="student_id" value="<?php echo $row['student_id'] ?>">
+				<input type="hidden" name="update_confirm" value="1">
+				<br>
+				<input type="submit" value="Update" class="button">
+				<br>
+				<hr>
+				<br>
+
+			</form>
+
+			<?php
+		}
 		
-		
+	}
+
+	function perform_update($dbc) {
+		if(isset($_POST['update_confirm'])) {
+			$fn = isset($_POST['first_name']) ? $_POST['first_name'] : null;
+			$ln = isset($_POST['last_name']) ? $_POST['last_name'] : null;
+			$em = isset($_POST['email']) ? $_POST['email'] : null;
+			$ph = isset($_POST['phone']) ? $_POST['phone'] : null;
+			$id = isset($_POST['student_id']) ? $_POST['student_id'] : null;
+			if(isset($fn, $ln, $em, $id, $ph)) {
+				$q="UPDATE students SET first_name='$fn', last_name='$ln', email='$em', phone='$ph' WHERE student_id=$id LIMIT 1";
+				mysqli_query($dbc, $q);
+				if(mysqli_affected_rows($dbc)==1) {
+					echo '<p class="success">Update was successful!</p>';
+				} else {
+					echo '<p class="error">Update failed!</p>';
+				}
+			}
+			
+		}
 	}
 
 ?>
