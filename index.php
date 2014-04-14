@@ -16,9 +16,9 @@
 
 ?>
 			<!--this is the content area-->
-			<p>
-
 				<?php
+					//CHECK SORTING
+					set_sort();
 					//DELETE SECTION
 					//check to see if the user is trying to delete a record
 					if(isset($_GET['delete'])) {
@@ -37,12 +37,9 @@
 
 					//DISPLAY SECTION
 					//display the table
-					display_table($dbc, "students", "first_name");
+					display_table($dbc, "students", $_SESSION['sortby'], $_SESSION['sortmethod']);
 
 				?>
 				
-			</p>
-		
-
 <?php include 'includes/footer.inc.php'; ?>
 		

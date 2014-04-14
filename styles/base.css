@@ -138,6 +138,14 @@ body {
     color: #050505; }
   .tabledisplay a:hover, .tabledisplay a:active {
     color: white; }
+  .tabledisplay .sortlink {
+    background-color: #2222aa; }
+    .tabledisplay .sortlink a:link, .tabledisplay .sortlink a:visited {
+      color: #888888;
+      text-decoration: none; }
+    .tabledisplay .sortlink a:hover, .tabledisplay .sortlink a:active {
+      color: white;
+      text-decoration: none; }
 
 #insert_user p, #update_form p {
   font-size: 1.1em;

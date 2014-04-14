@@ -14,12 +14,12 @@
 		echo "<th>Actions</th>";
 		//show the column names as <th>
 		foreach($row as $k => $v) {
-			echo "<th>$k</th>";
+			echo "<th class=\"sortlink\"><a href=\"?sortby=$k\">$k</a></th>";
 		}
 		echo "</tr>";
 		//run the query for the whole table
 		$q = "SELECT * FROM $t";
-		if($o) {
+		if(isset($o)) {
 			$q .= " ORDER BY " . $o . " " . $s;
 		}
 		$r = mysqli_query($dbc, $q);
@@ -133,6 +133,24 @@
 				}
 			}
 			
+		}
+	}
+
+	function set_sort() {
+		session_start();
+		$_SESSION['sortby'] = isset($_SESSION['sortby']) ? $_SESSION['sortby'] : "first_name";
+		$_SESSION['sortmethod'] = isset($_SESSION['sortmethod']) ? $_SESSION['sortmethod'] : "ASC";
+		if(isset($_GET['sortby'])) {
+			if($_SESSION['sortby'] == $_GET['sortby']) {
+				if($_SESSION['sortmethod'] == 'ASC') {
+					$_SESSION['sortmethod'] = 'DESC';
+				} else {
+					$_SESSION['sortmethod'] = 'ASC';
+				}
+			} else {
+				$_SESSION['sortby'] = $_GET['sortby'];
+				$_SESSION['sortmethod'] = 'ASC';
+			}
 		}
 	}
 

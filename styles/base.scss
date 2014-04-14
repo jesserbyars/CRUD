@@ -9,6 +9,7 @@ $darkgray: #555555;
 $verydarkgray: #171717;
 $red: #ce1812;
 $blue: #0000dd;
+$darkblue: #2222aa;
 $green: #00dd00;
 
 @import 'reset.scss';
@@ -164,6 +165,19 @@ body {
 
 	a:hover, a:active {
 		color: $white;
+	}
+
+	.sortlink {
+		background-color: $darkblue;
+		a:link, a:visited {
+			color: $gray;
+			text-decoration: none;	
+		}
+		a:hover, a:active {
+			color: $white;
+			text-decoration: none;
+		}
+		
 	}
 
 }
